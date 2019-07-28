@@ -2,12 +2,12 @@
 @inject('perm', 'App\Models\Permission')
 @section('content')
     @section('page_title')
-       Edit Role
+        {{__('messages.Edit Role')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Form TO Edit Role</h3>
+                <h3 class="box-title">{{__('messages.Form TO Edit Role')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -22,27 +22,27 @@
                         'method'=>'put'
                     ]) !!}
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{{__('messages.Name')}}</label>
                         {!! Form::text('name',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="display_name">Display Name</label>
+                        <label for="display_name">{{__('messages.Display Name')}}</label>
                         {!! Form::text('display_name',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">{{__('messages.Description')}}</label>
                         {!! Form::textarea('description',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                            <label for="permission_list">Permission list</label>
+                            <label for="permission_list">{{__('messages.Permissions')}}</label>
                             <br>
-                            <input id="select-all" type="checkbox"><label for='select-all'>Select All</label>
+                            <input id="select-all" type="checkbox">      <label for='select-all'>{{__('messages.Select All')}}</label>
                             <br>
                             <div class="row">
                                 @foreach($perm->all() as $permission)
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     <div class="form-group">
-                        <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> Edit</button>
+                        <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> {{__('messages.Edit')}}</button>
                     </div>
                 {!! Form::close() !!}
             </div>

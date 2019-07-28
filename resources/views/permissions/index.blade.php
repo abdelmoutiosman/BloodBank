@@ -2,12 +2,12 @@
 @inject('model', 'App\Models\Permission')
 @section('content')
     @section('page_title')
-        Permissions
+        {{__('messages.Permissions')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">List Of Permissions</h3>
+                <h3 class="box-title">{{__('messages.List Of Permissions')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="box-body">
-                <a href="{{url(route('permission.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> New Permission</a>
+                <a href="{{url(route('permission.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> {{__('messages.New Permission')}}</a>
                 @include('flash::message')
                 @if(count($records))                 
                     <div class="table-responsive">
@@ -25,12 +25,12 @@
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Display Name</th>
-                                    <th class="text-center">Description</th>
-                                    <th class="text-center">Routes</th>
-                                    <th class="text-center">Edit</th>
-                                    <th class="text-center">Delete</th>
+                                    <th class="text-center">{{__('messages.Name')}}</th>
+                                    <th class="text-center">{{__('messages.Display Name')}}</th>
+                                    <th class="text-center">{{__('messages.Description')}}</th>
+                                    <th class="text-center">{{__('messages.Routes')}}</th>
+                                    <th class="text-center">{{__('messages.Edit')}}</th>
+                                    <th class="text-center">{{__('messages.Delete')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,7 +43,7 @@
                                     <td class="text-center">{{$record->routes}}</td>
                                     <td class="text-center">
                                         <a href="{{url(route('permission.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
+                                            {{__('messages.Edit')}}</a>
                                     </td>
                                     <td class="text-center">
                                         {!! Form::model($model,[
@@ -53,7 +53,7 @@
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('permission.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> {{__('messages.Delete')}}</button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -63,7 +63,7 @@
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        NoData
+                        {{__('messages.NoData')}}
                     </div>
                 @endif
             </div>

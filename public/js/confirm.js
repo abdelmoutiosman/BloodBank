@@ -26,7 +26,7 @@ $(document).on('click','.destroy',function(){
                         Swal.fire("خطأ!", data.message, "error")
                     }else{
                         $("#removable"+data.id).remove();
-                       Swal.fire("أحسنت!", data.message, "success")
+                        Swal.fire("أحسنت!", data.message, "success")
                         //toastr.success(data.msg)
                     }
                 }

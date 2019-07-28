@@ -10,17 +10,17 @@
 @inject('setting', 'App\Models\Setting')
 @section('content')
     @section('page_title')
-        Dashboard
+        {{__('messages.Dashboard')}}
     @endsection
     @section('small_title')
-        Control Panel
+        {{__('messages.Control Panel')}}
     @endsection
     <section class="content">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">clients</span>
+                <span class="info-box-text">{{__('messages.Clients')}}</span>
                 <span class="info-box-number">{{$client->count()}}</span>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-line-chart"></i></span>
                     <div class="info-box-content">
-                    <span class="info-box-text">orders</span>
+                    <span class="info-box-text">{{__('messages.Orders')}}</span>
                     <span class="info-box-number">{{$order->count()}}</span>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="fa fa-heartbeat"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">bloodtypes</span>
+                <span class="info-box-text">{{__('messages.bloodtypes')}}</span>
                 <span class="info-box-number">{{$bloodtype->count()}}</span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-blue"><i class="fa fa-folder-open"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">categories</span>
+                <span class="info-box-text">{{__('messages.Categories')}}</span>
                 <span class="info-box-number">{{$category->count()}}</span>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-orange"><i class="fa fa-home"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">cities</span>
+                <span class="info-box-text">{{__('messages.Cities')}}</span>
                 <span class="info-box-number">{{$city->count()}}</span>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="fa fa-institution"></i></span>
                     <div class="info-box-content">
-                    <span class="info-box-text">governorates</span>
+                    <span class="info-box-text">{{__('messages.Governorates')}}</span>
                     <span class="info-box-number">{{$governorate->count()}}</span>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-secondary"><i class="fa fa-navicon"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">posts</span>
+                <span class="info-box-text">{{__('messages.Posts')}}</span>
                 <span class="info-box-number">{{$post->count()}}</span>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-navy"><i class="fa fa-address-card"></i></span>
                 <div class="info-box-content">
-                <span class="info-box-text">contacts</span>
+                <span class="info-box-text">{{__('messages.Contacts')}}</span>
                 <span class="info-box-number">{{$contact->count()}}</span>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-gray-light"><i class="fa fa-gears"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">settings</span>
+                    <span class="info-box-text">{{__('messages.Settings')}}</span>
                     <span class="info-box-number">{{$setting->count()}}</span>
                 </div>
             </div>

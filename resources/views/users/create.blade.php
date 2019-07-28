@@ -2,12 +2,12 @@
 @inject('model', 'App\User')
 @section('content')
     @section('page_title')
-       Create User
+        {{__('messages.Create User')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Form TO Create User</h3>
+                <h3 class="box-title">{{__('messages.Form TO Create User')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -23,40 +23,40 @@
                         'method'=>'POST'
                     ]) !!}
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{{__('messages.Name')}}</label>
                         {!! Form::text('name',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">{{__('messages.Email')}}</label>
                         {!! Form::email('email',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">{{__('messages.Password')}}</label>
                         {!! Form::password('password',[
                             'class'=>'password1 form-control',
                         ]) !!}
                         <i class="show-pass1 fa fa-eye fa-1x"></i>
                     </div>
                     <div class="form-group">
-                        <label for="password_confirmation">Password Confirmation</label>
+                        <label for="password_confirmation">{{__('messages.Password Confirmation')}}</label>
                         {!! Form::password('password_confirmation',[
                             'class'=>'password2 form-control',
                         ]) !!}
                         <i class="show-pass2 fa fa-eye fa-1x"></i>
                     </div>
                     <div class="form-group">
-                        <label for="roles_list">Roles List</label>
+                        <label for="roles_list">{{__('messages.Roles list')}}</label>
                         {!! Form::select('roles_list[]',$roles,null,[
                             'class'=>'form-control',
                             'multiple'=>'multiple'
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary" type="submit">{{__('messages.Save')}}</button>
                     </div>
                 {!! Form::close() !!}
             </div>

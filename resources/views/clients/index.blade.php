@@ -2,12 +2,12 @@
 @inject('model', 'App\Models\Client')
 @section('content')
     @section('page_title')
-        Clients
+        {{__('messages.Clients')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">List Of Clients</h3>
+                <h3 class="box-title">{{__('messages.List Of Clients')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 {!! Form::text('name',request()->input('name'),[
                                     'class'=>'form-control',
-                                    'placeholder' =>'Client Name'
+                                    'placeholder' =>__('messages.Client Name')
                                 ]) !!}
                             </div>
                         </div>
@@ -47,15 +47,15 @@
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Birth_Of_Date</th>
-                                    <th class="text-center">Blood_Type_Name</th>
-                                    <th class="text-center">Phone</th>
-                                    <th class="text-center">City_Name</th>
-                                    <th class="text-center">Last_Donation_Date</th>
-                                    <th class="text-center">active/deactive</th>
-                                    <th class="text-center">Delete</th>
+                                    <th class="text-center">{{__('messages.Name')}}</th>
+                                    <th class="text-center">{{__('messages.Email')}}</th>
+                                    <th class="text-center">{{__('messages.Birth_Of_Date')}}</th>
+                                    <th class="text-center">{{__('messages.Blood_Type')}}</th>
+                                    <th class="text-center">{{__('messages.Phone')}}</th>
+                                    <th class="text-center">{{__('messages.City_Name')}}</th>
+                                    <th class="text-center">{{__('messages.Last_Donation_Date')}}</th>
+                                    <th class="text-center">{{__('messages.active/deactive')}}</th>
+                                    <th class="text-center">{{__('messages.Delete')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,9 +71,9 @@
                                     <td class="text-center">{{$record->last_donation_date}}</td>
                                     <td class="text-center">
                                          @if($record->activated)
-                                             <a href="clients/{{$record->id}}/deactivated" class="btn btn-danger"><i class="fa fa-close"></i> Deactive</a>
+                                             <a href="clients/{{$record->id}}/deactivated" class="btn btn-danger"><i class="fa fa-close"></i> {{__('messages.Deactive')}}</a>
                                          @else
-                                             <a href="clients/{{$record->id}}/activated" class="btn btn-success"><i class="fa fa-check"></i> Active</a>
+                                             <a href="clients/{{$record->id}}/activated" class="btn btn-success"><i class="fa fa-check"></i> {{__('messages.Active')}}</a>
                                          @endif
                                     </td>
                                     <td class="text-center">
@@ -84,7 +84,7 @@
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('client.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> {{__('messages.Delete')}}</button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -94,7 +94,7 @@
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        NoData
+                        {{__('messages.NoData')}}
                     </div>
                 @endif
             </div>

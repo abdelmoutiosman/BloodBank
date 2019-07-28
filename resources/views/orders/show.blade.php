@@ -2,12 +2,12 @@
 
 @section('content')
 @section('page_title')
-    Details of Order Number {{$records->id}}
+    {{__('messages.Details of Order Number')}} {{$records->id}}
 @endsection
 <section class="content">
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">details of order</h3>
+            <h3 class="box-title">{{__('messages.details of order')}}</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -21,19 +21,19 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="bg-info">
-                            <th class="text-center">Order ID</th>
-                            <th class="text-center">Blood_Type_Name</th>
-                            <th class="text-center">Client_Name</th>
-                            <th class="text-center">Age</th>
-                            <th class="text-center">Bags_Number</th>
-                            <th class="text-center">Hospital_name</th>
-                            <th class="text-center">Hospital_address</th>
-                            <th class="text-center">Longitude</th>
-                            <th class="text-center">Latitude</th>
-                            <th class="text-center">Phone</th>
-                            <th class="text-center">City_Name</th>
-                            <th class="text-center">Notice</th>
-                            <th class="text-center">Edit</th>
+                            <th class="text-center">{{__('messages.Order ID')}}</th>
+                            <th class="text-center">{{__('messages.Blood_Type')}}</th>
+                            <th class="text-center">{{__('messages.Client Name')}}</th>
+                            <th class="text-center">{{__('messages.Age')}}</th>
+                            <th class="text-center">{{__('messages.Bags_Number')}}</th>
+                            <th class="text-center">{{__('messages.Hospital_name')}}</th>
+                            <th class="text-center">{{__('messages.Hospital_address')}}</th>
+                            <th class="text-center">{{__('messages.Longitude')}}</th>
+                            <th class="text-center">{{__('messages.Latitude')}}</th>
+                            <th class="text-center">{{__('messages.Phone')}}</th>
+                            <th class="text-center">{{__('messages.City_Name')}}</th>
+                            <th class="text-center">{{__('messages.Notice')}}</th>
+                            <th class="text-center">{{__('messages.Edit')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,13 +52,13 @@
                             <td class="text-center">{{$records->notice}}</td>
                             <td class="text-center">
                                 <a href="{{url(route('order.edit',$records->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    Edit</a>
+                                    {{__('messages.Edit')}}</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <a href="{{url(route('order.index'))}}" class="btn btn-sm btn-primary">Back <<</a>
-                <a href="" class="btn btn-sm btn-success" id="printall">Print <<</a>
+                <a href="{{url(route('order.index'))}}" class="btn btn-sm btn-primary">{{__('messages.Back')}} <<</a>
+                <a href="" class="btn btn-sm btn-success" id="printall">{{__('messages.Print')}} <<</a>
             </div>
         </div>
     </div>

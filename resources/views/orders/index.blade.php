@@ -2,12 +2,12 @@
 @inject('model', 'App\Models\Order')
 @section('content')
     @section('page_title')
-        Orders
+        {{__('messages.Orders')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">List Of Orders</h3>
+                <h3 class="box-title">{{__('messages.List Of Orders')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 {!! Form::number('id',request()->input('id'),[
                                     'class'=>'form-control',
-                                    'placeholder' =>'Order Number'
+                                    'placeholder' =>__('messages.Order Number')
                                 ]) !!}
                             </div>
                         </div>
@@ -47,10 +47,10 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="bg-info">
-                                    <th class="text-center">Order ID</th>
-                                    <th class="text-center">Client_Name</th>
-                                    <th class="text-center">Hospital_name</th>
-                                    <th class="text-center">Delete</th>
+                                    <th class="text-center">{{__('messages.Order ID')}}</th>
+                                    <th class="text-center">{{__('messages.Client Name')}}</th>
+                                    <th class="text-center">{{__('messages.Hospital_name')}}</th>
+                                    <th class="text-center">{{__('messages.Delete')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,7 +67,7 @@
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('order.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> {{__('messages.Delete')}}</button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        No Data
+                        {{__('messages.NoData')}}
                     </div>
                 @endif
             </div>

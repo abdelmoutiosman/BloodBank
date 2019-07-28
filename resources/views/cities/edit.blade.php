@@ -3,12 +3,12 @@
 
 @section('content')
     @section('page_title')
-       Edit City
+        {{__('messages.Edit City')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Form TO Edit City</h3>
+                <h3 class="box-title">{{__('messages.Form TO Edit City')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -23,19 +23,19 @@
                         'method'=>'put'
                     ]) !!}
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{{__('messages.Name')}}</label>
                         {!! Form::text('name',null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <label for="governorate_id">Governorates</label>
+                        <label for="governorate_id">{{__('messages.Governorate')}}</label>
                         {!! Form::select('governorate_id',$governorate->pluck('name','id'),null,[
                             'class'=>'form-control',
                         ]) !!}
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> Edit</button>
+                        <button class="btn btn-success" type="submit"><i class="fa fa-edit btn-xs"></i> {{__('messages.Edit')}}</button>
                     </div>
                 {!! Form::close() !!}
             </div>

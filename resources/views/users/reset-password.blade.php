@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
-    Change Password
+    {{__('messages.Change Password')}}
 @endsection
 @section('content')
     <section class="content">
@@ -24,24 +24,24 @@
                 ])!!}
                 @include('flash::message')
                 @include('partials.validation_errors')              
-                    <label>Password</label>
+                    <label>{{__('messages.Password')}}</label>
                     <div class="form-group">
                         <input class="password1 form-control" type="password" name="old-password"/>
                         <i class="show-pass1 fa fa-eye fa-1x"></i>
                     </div>
-                    <label>New Password</label>
+                    <label>{{__('messages.New Password')}}</label>
                     <div class="form-group">
                         <input class="password2 form-control" type="password" name="password"/>
                         <i class="show-pass2 fa fa-eye fa-1x"></i>
                     </div>
-                    <label>Password Confirmation</label>
+                    <label>{{__('messages.Password Confirmation')}}</label>
                     <div class="form-group">
                         <input class="password3 form-control" type="password" name="password_confirmation"/>
                         <i class="show-pass3 fa fa-eye fa-1x"></i>
                     </div>
                 <!-- /.box -->
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">{{__('messages.Save')}}</button>
                 </div>
                 {!! Form::close()!!}
             </div>

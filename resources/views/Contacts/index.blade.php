@@ -2,12 +2,12 @@
 
 @section('content')
     @section('page_title')
-        Contacts
+        {{__('messages.Contacts')}}
     @endsection
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">List Of Contacts</h3>
+                <h3 class="box-title">{{__('messages.List Of Contacts')}}</h3>
                 <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 {!! Form::text('title',request()->input('title'),[
                                     'class'=>'form-control',
-                                    'placeholder' =>'Title'
+                                    'placeholder' =>__('messages.Title')
                                 ]) !!}
                             </div>
                         </div>
@@ -47,10 +47,10 @@
                             <thead>
                                 <tr class="bg-info">
                                     <th class="text-center">#</th>
-                                    <th class="text-center">Phone</th>
-                                    <th class="text-center">Title</th>
-                                    <th class="text-center">Body</th>
-                                    <th class="text-center">Delete</th>
+                                    <th class="text-center">{{__('messages.Phone')}}</th>
+                                    <th class="text-center">{{__('messages.Title')}}</th>
+                                    <th class="text-center">{{__('messages.Body')}}</th>
+                                    <th class="text-center">{{__('messages.Delete')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +68,7 @@
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('contact.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i
-                                                class="fa fa-trash-o"></i> Delete</button>                                          
+                                                class="fa fa-trash-o"></i> {{__('messages.Delete')}}</button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -78,7 +78,7 @@
                     </div>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        NoData
+                        {{__('messages.NoData')}}
                     </div>
                 @endif
             </div>

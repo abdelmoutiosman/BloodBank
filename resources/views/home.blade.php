@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-blue"><i class="fa fa-folder-open"></i></span>
+                <span class="info-box-icon bg-blue"><i class="fa fa-list-alt"></i></span>
                 <div class="info-box-content">
                 <span class="info-box-text">{{__('messages.Categories')}}</span>
                 <span class="info-box-number">{{$category->count()}}</span>
@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-orange"><i class="fa fa-home"></i></span>
+                <span class="info-box-icon bg-orange"><i class="ion ion-flag"></i></span>
                 <div class="info-box-content">
                 <span class="info-box-text">{{__('messages.Cities')}}</span>
                 <span class="info-box-number">{{$city->count()}}</span>
@@ -63,7 +63,7 @@
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-institution"></i></span>
+                    <span class="info-box-icon bg-yellow"><i class="ion-ios-home"></i></span>
                     <div class="info-box-content">
                     <span class="info-box-text">{{__('messages.Governorates')}}</span>
                     <span class="info-box-number">{{$governorate->count()}}</span>
@@ -72,7 +72,7 @@
             </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-secondary"><i class="fa fa-navicon"></i></span>
+                <span class="info-box-icon bg-secondary"><i class="fa fa-newspaper-o"></i></span>
                 <div class="info-box-content">
                 <span class="info-box-text">{{__('messages.Posts')}}</span>
                 <span class="info-box-number">{{$post->count()}}</span>
@@ -81,7 +81,7 @@
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-navy"><i class="fa fa-address-card"></i></span>
+                <span class="info-box-icon bg-navy"><i class="fa fa-envelope"></i></span>
                 <div class="info-box-content">
                 <span class="info-box-text">{{__('messages.Contacts')}}</span>
                 <span class="info-box-number">{{$contact->count()}}</span>

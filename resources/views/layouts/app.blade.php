@@ -63,7 +63,6 @@
               <span class="logo-lg"><b>Blood</b>Bank</span>
             </a>
         @endif
-
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
           <!-- Sidebar toggle button-->
@@ -73,7 +72,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
              <!-- Messages: style can be found in dropdown.less-->
@@ -225,14 +223,14 @@
                 <li><a href="{{url(route('city.index'))}}"><i class="fa fa-circle-o"></i>{{__('messages.Cities')}}</a></li>
               </ul>
             </li>
-            <li><a href="{{url(route('client.index'))}}"><i class="fa fa-user"></i> <span>{{__('messages.Clients')}}</span></a>
-            <li><a href="{{url(route('order.index'))}}"><i class="fa fa-first-order"></i> <span>{{__('messages.Orders')}}</span></a></li>
-            <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone-square"></i> <span>{{__('messages.Contacts')}}</span></a></li>
-            <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-gear"></i> <span>{{__('messages.Settings')}}</span></a></li>
+            <li><a href="{{url(route('client.index'))}}"><i class="fa fa-users"></i> <span>{{__('messages.Clients')}}</span></a>
+            <li><a href="{{url(route('order.index'))}}"><i class="fa fa-heart"></i> <span>{{__('messages.Orders')}}</span></a></li>
+            <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone"></i> <span>{{__('messages.Contacts')}}</span></a></li>
+            <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-cogs"></i> <span>{{__('messages.Settings')}}</span></a></li>
+            <li><a href="{{url('user/change-password')}}"><i class="fa fa-key"></i> <span>{{__('messages.Change Password')}}</span></a></li>
             <li><a href="{{url(route('user.index'))}}"><i class="fa fa-users"></i> <span>{{__('messages.Users')}}</span></a></li>
             <li><a href="{{url(route('role.index'))}}"><i class="fa fa-list"></i> <span>{{__('messages.Roles')}}</span></a></li>
             <li><a href="{{url(route('permission.index'))}}"><i class="fa fa-list"></i> <span>{{__('messages.Permissions')}}</span></a></li>
-            <li><a href="{{url('user/change-password')}}"><i class="fa fa-user"></i> <span>{{__('messages.Change Password')}}</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->

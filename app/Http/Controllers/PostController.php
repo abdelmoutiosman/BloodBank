@@ -95,7 +95,7 @@ class PostController extends Controller
     {
         $post=Post::find($id);
         $this->validate($request, [
-            'title' => 'required',Rule::unique('products', 'name')->ignore($post->id),
+            'title' => 'required',Rule::unique('posts', 'title')->ignore($post->id),
             'image' => 'required|mimes:jpeg,jpg,png',
         ]);
         $post->update($request->except('image'));

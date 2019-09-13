@@ -10,15 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return redirect('login');
-});
+//Route::get('/', function () {
+//    return redirect('login');
+//});
 
 Auth::routes();
 
+//routes of admin panal
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],
     function() {
-    Route::group(['middleware'=>['auth','auto-check-permission']],function(){
+    Route::group(['middleware'=>['auth:web','auto-check-permission']],function(){
         Route::get('/home', 'HomeController@index')->name('home');
         Route::resource('post', 'PostController');
         Route::resource('categorie', 'CategoryController');
@@ -39,6 +40,34 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 });
 Route::get('forgetpassword','UserController@forgetpassword');
 Route::post('forgetpassword','UserController@passwordSave')->name('savepassword');
+
+//=========================================================================================
+
+//routes of web applicatin
+Route::get('/','DesignController@home');
+Route::get('/order/details/{id}/','DesignController@order')->name('order.details');
+Route::get('/orders','DesignController@orders')->name('orders');
+Route::get('/posts/{id}/','DesignController@post')->name('posts');
+Route::get('/about','DesignController@about')->name('about');
+Route::get('/contacts','DesignController@contact')->name('contacts');
+Route::post('create/contact','DesignController@createContact')->name('create.contact');
+Route::get('/register','DesignController@register');
+Route::post('create/client','DesignController@createClient')->name('create.client');
+Route::get('/signin','DesignController@signIn')->name('signin');
+Route::post('/signin/checked','DesignController@checked')->name('signin.checked');
+
+//Route::group(['middleware' => 'auth:client'],function (){
+    Route::get('/order/create','DesignController@orderCreate')->name('order.create');
+    //Route::post('/order/store','DesignController@orderStore')->name('order.store');
+//});
+
+
+
+
+
+
+
+
 
 
 

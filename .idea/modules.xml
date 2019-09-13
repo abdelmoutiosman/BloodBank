@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bloodbank.iml" filepath="$PROJECT_DIR$/.idea/bloodbank.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../sofra/.idea/sofra.iml" filepath="$PROJECT_DIR$/../sofra/.idea/sofra.iml" />
     </modules>
   </component>
 </project>

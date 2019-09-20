@@ -46,7 +46,7 @@
                         {!! Form::password('password_confirmation',[
                             'class'=>'password2 form-control',
                         ]) !!}
-                        <i class="show-pass2 fa fa-eye fa-1x"></i>
+                        <i class="show-pass2 fa fa-eye fa-1x" id=""></i>
                     </div>
                     <div class="form-group">
                         <label for="roles_list">{{__('messages.Roles list')}}</label>

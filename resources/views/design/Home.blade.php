@@ -54,7 +54,7 @@
 </section>
 <!-- oradaniry nav section -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="nav-logo " href="Home.html"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
+    <a class="nav-logo " href="/"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -280,7 +280,6 @@
 <script src="{{asset('js/pureJSCalendar.js')}}"></script>
 </body>
 </html>
-@stack('calender1')
 
 
 

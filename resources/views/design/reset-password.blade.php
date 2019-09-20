@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- custom font -->
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
-    <title>دخول</title>
+    <title>هل نسيت كلمه المرور</title>
 </head>
 <body id="body-bg2">
 <!-- top nav section -->
@@ -87,7 +87,7 @@
                     <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="/">الرئيسية</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">تسجيل الدخول </li>
+                              <li class="breadcrumb-item active" aria-current="page">نسيت كلمه المرور</li>
                             </ol>
                           </nav>
 
@@ -98,36 +98,16 @@
             <div class="article-content shadow">
                 <p class="content">
                     <img  class="log-logo" src="{{asset('imgs/logo.png')}}">
-                    <form method="POST" action="{{url(route('signin.checked'))}}" validate>
+                    <form method="POST" action="{{url(route('reset-password'))}}" validate>
                         {{csrf_field()}}
                             <div class="form-group">
-                              <input type="text" class="form-control" name="phone" id="validationCustom01" placeholder="الجوال" required>
+                              <input type="text" class="form-control" name="phone" id="validationCustom01" placeholder="رقم الجوال" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid phone number.
                                 </div>
                             </div>
-                            <div class="form-group">
-                              <input type="password" class="form-control" name="password" id="validationCustom02" placeholder="كلمة المرور" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid  password .
-                                </div>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    تذكرني
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                            <div class="did-u-forget clearfix">
-                              <a class="forget-pass" href="{{url(route('resetpassword'))}}"><p class="forget ">هل نسيت كلمة المرور</p></a>
-                              <img class="complian forget"src="{{asset('imgs/complain.png')}}">
-                             </div>
                             <div class="form-btns">
-                            <button type="submit" class="btn btn-login">دخول </button>
-                            <button type="submit" class="btn btn-new"><a href="/register">انشاء حساب جديد</a></button>
+                            <button type="submit" class="btn btn-login">ارسال </button>
                             </div>
                           </form>
             </div>

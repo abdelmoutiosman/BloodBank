@@ -68,7 +68,7 @@
                 <a class="nav-link border-left" href="#app">عن بنك الدم</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-left" href="#">المقالات</a>
+                <a class="nav-link border-left" href="/">المقالات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link border-left" href="{{url(route('orders'))}}">طلبات التبرع</a>
@@ -80,6 +80,32 @@
                 <a class="nav-link border-left" href="{{url(route('contacts'))}}">اتصل بنا </a>
             </li>
         </ul>
+        <div class="ccc">
+            <li class="dropdown" aria-current="page">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs">{{auth('client_web')->user()->name}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="text-center">
+                            <form action="{{ url('logout') }}" method="post" id='signoutForm'>
+                                @csrf
+                                <script type="">
+                                    function submitSignout() {
+                                        document.getElementById('signoutForm').submit();
+                                    }
+                                </script>
+                                {!! Form::open(['method' => 'post', 'url' => url('logout'),'id'=>'signoutForm']) !!}
+                                {!! Form::close() !!}
+                            </form>
+                            <a href="#" onclick="submitSignout()">
+                                <i class="fa fa-sign-out"></i>  تسجيل الخروج
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </div>
         </div>
       </nav>
      <!-- breedcrumb-->
@@ -97,58 +123,61 @@
           </div>
           <div class="row">
         <div class="col-md-12 signup-form">
-            <form class="needs-validation" method="POST" action="" validate>
+            <form class="needs-validation" method="POST" action="{{url(route('order.store'))}}" validate>
                 {{csrf_field()}}
                 <div class="form-row">
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="الاسم" name="name" required>
+                    {!! Form::select('blood_type_id',$bloodtypes->pluck('name','id'),null,[
+                            'class'=>['custom-select','custom-select-lg','mb-3','mt-3','custom-width'],
+                            'placeholder'=>'فصيلة الدم',
+                            'selected'=>'selected',
+                            'required'=>'required',
+                        ]) !!}
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="العمر" name="age" required>
                     <div class="invalid-feedback">
-                        Please provide a valid name.
+                        Please provide a valid age.
                     </div>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="البريد الاكتروني" name="email" required>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="عدد اكياس الدم" name="bags_number" required>
                     <div class="valid-feedback">
                       Looks good!
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="text" id="BD" class="form-control" id="validationCustom03" placeholder="تاريخ الميلاد" name="birth_of_date" required>
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="اسم المستشفي" name="hospital_name" required>
                     <div class="invalid-feedback">
-                      Please provide a valid city.
+                        Please provide a valid hospital_name.
                     </div>
-                    {!! Form::select('blood_type_id',$bloodtypes->pluck('name','id'),null,[
-                            'class'=>['custom-select','custom-select-lg','mb-3','mt-3','custom-width'],
-                            'placeholder'=>'فصيلة الدم',
-                            'selected'=>'selected',
-                        ]) !!}
+                    <input type="text" class="form-control" id="validationCustom04" placeholder="عنوان المستشفي" name="hospital_address" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <input type="text" class="form-control" id="validationCustom05" placeholder="خط الطول" name="longitude" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid longitude.
+                    </div>
+                    <input type="text" class="form-control" id="validationCustom06" placeholder="خط العرض" name="latitude" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="BD" class="form-control" id="validationCustom07" placeholder="الجوال" name="phone" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid phone.
+                    </div>
                     {!! Form::select('city_id',$cities->pluck('name','id'),null,[
                             'class'=>['custom-select','custom-select-lg','mb-3','mt-3','custom-width'],
                             'placeholder' =>'اختار المدينه',
                             'selected'=>'selected'
                         ]) !!}
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="رقم الهاتف" name="phone" required>
+                    <textarea class="form-control" id="validationCustom08" name="notice" placeholder="الملاحظات" rows="3" required></textarea>
                     <div class="invalid-feedback">
-                      Please provide a valid phone number .
+                      Please provide a valid notice.
                     </div>
-                    <input type="password" class="form-control" id="validationCustom06" placeholder="كلمه السر" name="password" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid  password .
-                    </div>
-                    <input type="text" id="ddd" class="form-control" id="validationCustom03" placeholder=" اخر تاريخ تبرع" name="last_donation_date" required>
                 </div>
-                <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
-                <input class="btn btn-create shadow" type="submit" value="انــشاء">
+
+                <input class="btn btn-create shadow" type="submit" value="ارسال الطلب">
               </form>
         </div>
-
           </div>
       </div>
 </section>
@@ -164,7 +193,7 @@
                 <ul class="footer-list">
                     <a href="/"><li> الرئيسيه</li></a>
                     <a href="#app"><li> عن بنك الدم </li></a>
-                    <a href="#"> <li> المقالات </li></a>
+                    <a href="/"> <li> المقالات </li></a>
                     <a href="{{url(route('orders'))}}"><li> طلبات التبرع </li></a>
                     <a href="{{url(route('about'))}}"> <li> من نحن </li></a>
                     <a href="{{url(route('contacts'))}}">  <li> اتصل بنا </li></a>

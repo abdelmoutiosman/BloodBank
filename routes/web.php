@@ -44,23 +44,34 @@ Route::post('forgetpassword','UserController@passwordSave')->name('savepassword'
 //=========================================================================================
 
 //routes of web applicatin
-Route::get('/','DesignController@home');
-Route::get('/order/details/{id}/','DesignController@order')->name('order.details');
-Route::get('/orders','DesignController@orders')->name('orders');
-Route::get('/posts/{id}/','DesignController@post')->name('posts');
-Route::get('/about','DesignController@about')->name('about');
-Route::get('/contacts','DesignController@contact')->name('contacts');
-Route::post('create/contact','DesignController@createContact')->name('create.contact');
-Route::get('/register','DesignController@register');
-Route::post('create/client','DesignController@createClient')->name('create.client');
-Route::get('/signin','DesignController@signIn')->name('signin');
-Route::post('/signin/checked','DesignController@checked')->name('signin.checked');
 
-//Route::group(['middleware' => 'auth:client'],function (){
-    Route::get('/order/create','DesignController@orderCreate')->name('order.create');
-    //Route::post('/order/store','DesignController@orderStore')->name('order.store');
-//});
+    //route from bloodbank home
+    Route::get('/', 'DesignController@home');
+    //route from order details
+    Route::get('/order/details/{id}/', 'DesignController@order')->name('order.details');
+    //route to show all orders
+    Route::get('/orders', 'DesignController@orders')->name('orders');
+    Route::get('/posts/{id}/', 'DesignController@post')->name('posts');
+    Route::get('/about', 'DesignController@about')->name('about');
+    Route::get('/contacts', 'DesignController@contact')->name('contacts');
+    Route::post('create/contact', 'DesignController@createContact')->name('create.contact');
+    Route::get('/register', 'DesignController@register');
+    Route::post('create/client', 'DesignController@createClient')->name('create.client');
+    Route::get('/signin', 'DesignController@signIn')->name('signin');
+    Route::post('/signin/checked', 'DesignController@checked')->name('signin.checked');
 
+    //route from reset password
+    Route::get('/resetpassword', 'DesignController@resetPassword')->name('resetpassword');
+    Route::post('reset-password','DesignController@ressetpassword')->name('reset-password');
+    //route from new password
+    Route::get('/newpassword', 'DesignController@newPassword')->name('newpassword');
+    Route::post('new-password','DesignController@neewpassword')->name('new-password');
+
+
+    Route::group(['middleware' => 'auth:client_web'], function () {
+        Route::get('/order/create', 'DesignController@orderCreate')->name('order.create');
+        Route::post('/order/store','DesignController@orderStore')->name('order.store');
+    });
 
 
 

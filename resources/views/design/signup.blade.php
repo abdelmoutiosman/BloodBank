@@ -68,7 +68,7 @@
                 <a class="nav-link border-left" href="#app">عن بنك الدم</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-left" href="#">المقالات</a>
+                <a class="nav-link border-left" href="/">المقالات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link border-left" href="{{url(route('orders'))}}">طلبات التبرع</a>
@@ -158,7 +158,6 @@
                 </div>
                 <input class="btn btn-create shadow" type="submit" value="انــشاء">
               </form>
-            @push('calender1')
               <script>
               // Example starter JavaScript for disabling form submissions if there are invalid fields
               (function() {
@@ -179,7 +178,6 @@
                 }, false);
               })();
               </script>
-                @endpush
         </div>
 
           </div>
@@ -197,7 +195,7 @@
                 <ul class="footer-list">
                     <a href="/"><li> الرئيسيه</li></a>
                     <a href="#app"><li> عن بنك الدم </li></a>
-                    <a href="#"> <li> المقالات </li></a>
+                    <a href="/"> <li> المقالات </li></a>
                     <a href="{{url(route('orders'))}}"><li> طلبات التبرع </li></a>
                     <a href="{{url(route('about'))}}"> <li> من نحن </li></a>
                     <a href="{{url(route('contacts'))}}">  <li> اتصل بنا </li></a>

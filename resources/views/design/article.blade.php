@@ -157,12 +157,12 @@
         <div class="row">
             <div class="col-md-4">
                 <img class="footer-logo" src="{{asset('imgs/logo.png')}}">
-                <p class="footer-text" id="app1">{{$settings->about_app}}</p>
+                <p class="footer-text" id="app">{{$settings->about_app}}</p>
             </div>
             <div class="col-md-4">
                 <ul class="footer-list">
                     <a href="/"><li> الرئيسيه</li></a>
-                    <a href="#app1"><li> عن بنك الدم </li></a>
+                    <a href="#app"><li> عن بنك الدم </li></a>
                     <a href="#post"> <li> المقالات </li></a>
                     <a href="{{url(route('orders'))}}"><li> طلبات التبرع </li></a>
                     <a href="{{url(route('about'))}}"> <li> من نحن </li></a>

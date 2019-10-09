@@ -3,6 +3,52 @@
     {{__('messages.Change Password')}}
 @endsection
 @section('content')
+    @push('css')
+        @if (app()->getLocale() == 'ar')
+            <style>
+                .form-group{
+                    position: relative;
+                }
+                .form-group .show-pass1{
+                    position: absolute;
+                    left: 18px;
+                    top: 10px;
+                }
+                .form-group .show-pass2{
+                    position: absolute;
+                    left: 18px;
+                    top: 10px;
+                }
+                .form-group .show-pass3{
+                    position: absolute;
+                    left: 18px;
+                    top: 10px;
+                }
+
+            </style>
+        @else
+            <style>
+                .form-group{
+                    position: relative;
+                }
+                .form-group .show-pass1{
+                    position: absolute;
+                    right: 18px;
+                    top: 10px;
+                }
+                .form-group .show-pass2{
+                    position: absolute;
+                    right: 18px;
+                    top: 10px;
+                }
+                .form-group .show-pass3{
+                    position: absolute;
+                    right: 18px;
+                    top: 10px;
+                }
+            </style>
+        @endif
+    @endpush
     <section class="content">
         <div class="box">
             <div class="box-header with-border">

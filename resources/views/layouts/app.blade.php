@@ -41,6 +41,7 @@
         font-size: 1.5rem !important;
       }
     </style>
+    @stack('css')
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <!-- Site wrapper -->

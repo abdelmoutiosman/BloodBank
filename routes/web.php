@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', function () {
-//    return redirect('login');
-//});
 
 Auth::routes();
 
@@ -31,8 +28,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
         Route::resource('order', 'OrderController');
         Route::resource('contact', 'ContactController');
         Route::resource('setting', 'SettingController');
+        //change-password
         Route::get('user/change-password','UserController@changePassword');
         Route::post('user/change-password','UserController@changePasswordSave');
+        //edit-profile
+        Route::get('user/edit-profile/{id}','UserController@edit_profile');
+        Route::post('user/update-profile/{id}','UserController@update_profile');
         Route::resource('user', 'UserController');
         Route::resource('role', 'RoleController');
         Route::resource('permission', 'PermissionController');
@@ -43,14 +44,14 @@ Route::post('forgetpassword','UserController@passwordSave')->name('savepassword'
 
 //=========================================================================================
 
-//routes of web applicatin
-
-    //route from bloodbank home
+//routes of design
+    //route from bloodbank home design
     Route::get('/', 'DesignController@home');
     //route from order details
     Route::get('/order/details/{id}/', 'DesignController@order')->name('order.details');
     //route to show all orders
     Route::get('/orders', 'DesignController@orders')->name('orders');
+    Route::get('/post', 'DesignController@allPost')->name('post');
     Route::get('/posts/{id}/', 'DesignController@post')->name('posts');
     Route::get('/about', 'DesignController@about')->name('about');
     Route::get('/contacts', 'DesignController@contact')->name('contacts');

@@ -17,9 +17,11 @@
                 </div>
             </div>
             <div class="box-body">
-                <a href="{{url(route('categorie.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> {{__('messages.New Category')}}</a>
+                <div class="form-group">
+                <a href="{{url(route('categorie.create'))}}" class="btn bg-primary"><i class="fa fa-plus"></i> {{__('messages.New Category')}}</a>
+                </div>
                 @include('flash::message')
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -31,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->name}}</td>
@@ -43,7 +45,7 @@
                                         {!! Form::model($model,[
                                                 'action'=>['CategoryController@destroy',$record->id],
                                                 'method'=>'delete'
-                                            ]) !!}                                          
+                                            ]) !!}
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('categorie.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i

@@ -21,9 +21,9 @@ class DesignController extends Controller
             if ($request->has('blood_type_id', 'city_id')) {
                 $query->where(['blood_type_id' => $request->blood_type_id, 'city_id' => $request->city_id]);
             }
-        })->take(1)->get();
+        })->take(3)->get();
         $posts=Post::all();
-        return view('design.home',compact('settings','records','posts'));
+        return view('design.index',compact('settings','records','posts'));
     }
     public function order($id){
         $settings=Setting::first();
@@ -36,13 +36,18 @@ class DesignController extends Controller
             if ($request->has('blood_type_id', 'city_id')) {
                 $query->where(['blood_type_id' => $request->blood_type_id, 'city_id' => $request->city_id]);
             }
-        })->paginate(2);
+        })->paginate(6);
         return view('design.order',compact('settings','records'));
+    }
+    public function allPost(){
+        $settings=Setting::first();
+        $posts=Post::all();
+        return view('design.articles',compact('settings','posts'));
     }
     public function post($id){
         $settings=Setting::first();
         $post=Post::find($id);
-        $posts=Post::all();
+        $posts=Post::where('category_id',$post->category_id)->get();
         return view('design.article',compact('settings','post','posts'));
     }
     public function about(){
@@ -81,9 +86,9 @@ class DesignController extends Controller
         }
         $request->merge(['password' => bcrypt($request->password)]);
         $client= Client::create($request->all());
-        $client->api_token=  str_random(60);
+        $client->api_token=str_random(60);
         $client->save();
-        return redirect(route('order.create'));
+        return redirect()->back();
     }
     public function signIn(){
         $settings=Setting::first();

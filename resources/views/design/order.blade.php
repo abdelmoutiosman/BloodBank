@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- custom font -->
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
-    <title>طلبات التبرع </title>
+    <title>طلبات التبرع</title>
 </head>
 <body>
 <!-- top nav section -->
@@ -26,26 +26,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="lang">
-                    <span><a href="#" id="arabic">عربى</a></span>
-                    <span><a href="#" id="en">EN</a></span>
+                <div class="social-media">
+                    <a style="color:white" href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
+                    <a style="color:white" href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
+                    <a style="color:white" href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
+                    <a style="color:white" href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
+                    <a style="color:white" href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="social-media">
-                    <a href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
-                    <a href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
-                    <a href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
-                    <a href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
-                </div>
+                {{--  <div class="lang">
+                    <span><a href="#" id="arabic">عربى</a></span>
+                    <span><a href="#" id="en">EN</a></span>
+                </div>  --}}
             </div>
             <div class="col-md-4">
                 <div class="contact">
                     <p class="email">{{$settings->email}}</p>
                     <i class="fas fa-envelope-square email "></i>
-                    <p class="phone ">{{$settings->phone}}
-                    </p>
+                    <p class="phone ">{{$settings->phone}}</p>
                     <i class="fas fa-phone-volume phone hvr-buzz"></i>
                 </div>
             </div>
@@ -54,21 +53,21 @@
 </section>
 <!-- oradaniry nav section -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="nav-logo " href="/"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
+    <a class="nav-logo " href="{{url('/')}}"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link " href="/">الرئيسية</a>
+                <a class="nav-link" href="{{url('/')}}">الرئيسية</a>
                 <span class="test"></span>
             </li>
             <li class="nav-item">
                 <a class="nav-link border-left" href="#app">عن بنك الدم</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-left" href="/">المقالات</a>
+                <a class="nav-link border-left" href="{{url('/post')}}">المقالات</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link border-left" href="{{url(route('orders'))}}">طلبات التبرع</a>
@@ -81,9 +80,9 @@
             </li>
         </ul>
         <span class="navbar-text">
-           <a  class="new-account"href="/register">انشاء حــساب جديد</a>
-           <a href="{{url(route('signin'))}}"><button class="btn login-btn shadow">دخول</button></a>
-          </span>
+            <a  class="new-account"href="{{url('/register')}}">انشاء حــساب جديد</a>
+            <a href="{{url(route('signin'))}}"><button class="btn login-btn shadow">دخول</button></a>
+           </span>
     </div>
 </nav>
 <!-- breedcrumb-->
@@ -91,19 +90,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                  <nav aria-label="breadcrumb">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/">الرئيسية</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">طلبات التبرع</li>
-                          </ol>
-                        </nav>
-
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{url('/')}}">الرئيسية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">طلبات التبرع</li>
+                    </ol>
+                </nav>
             </div>
         </div>
         </div>
-
 <h2 class="donations-head horizntal-line">طلبات التبرع </h2>
-
  <!-- Donations offers  -->
 <section id="donations">
     <div class="container custom-position">
@@ -146,7 +142,7 @@
                 <ul class="order-details">
                     <li class="cutom-display">اسم الحالة:</li>
                     <span class="cutom-display">{{$record->client->name}}</span><br>
-                    <li class="cutom-display custom-padding" >مستشفي:</li>
+                    <li class="cutom-display custom-padding" >اسم المستشفي:</li>
                     <span class="cutom-display custom-padding">{{$record->hospital_name}}</span><br>
                     <div class="adjust-position">  <li class="cutom-display ">المدينة:</li>
                         <span class="cutom-display ">{{$record->city->name}}</span></div>
@@ -159,7 +155,7 @@
     @endforeach
             <div class="row">
                 <div class="col-12 d-flex justify-content-center mt-5">
-                    {{$records->render()}}
+                    {{$records->appends(request()->query())->render()}}
 {{--                    or links()--}}
                 </div>
             </div>
@@ -175,12 +171,12 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="footer-list">
-                        <a href="/"><li> الرئيسيه</li></a>
-                        <a href="#app1"><li> عن بنك الدم </li></a>
-                        <a href="/"> <li> المقالات </li></a>
-                        <a href="{{url(route('orders'))}}"><li> طلبات التبرع </li></a>
-                        <a href="{{url(route('about'))}}"> <li> من نحن </li></a>
-                        <a href="{{url(route('contacts'))}}">  <li> اتصل بنا </li></a>
+                        <a href="{{url('/')}}"><li>الرئيسيه</li></a>
+                        <a href="#app1"><li>عن بنك الدم</li></a>
+                        <a href="{{url('/post')}}"><li>المقالات</li></a>
+                        <a href="{{url(route('orders'))}}"><li>طلبات التبرع</li></a>
+                        <a href="{{url(route('about'))}}"><li>من نحن</li></a>
+                        <a href="{{url(route('contacts'))}}"><li>اتصل بنا</li></a>
                     </ul>
                 </div>
                 <div class="col-md-4 change-position">
@@ -196,11 +192,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="social-media">
-                        <a href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
-                        <a href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
-                        <a href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
+                        <a style="color:white" href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
+                        <a style="color:white" href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
+                        <a style="color:white" href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
+                        <a style="color:white" href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
+                        <a style="color:white" href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
                     </div>
                 </div>
                 <div class="col-md-8">

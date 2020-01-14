@@ -16,9 +16,9 @@ class OrderController extends Controller
     {
         $records=Order::where(function($q) use($request) {
             if ($request->has('id')){
-                $q->where('id',$request->id);
+                $q->where('id','like','%'.$request->id.'%');
             }
-        })->paginate(2);
+        })->paginate(6);
         return view('orders.index',compact('records'));
     }
 

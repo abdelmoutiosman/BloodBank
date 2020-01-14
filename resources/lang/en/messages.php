@@ -118,5 +118,9 @@
         "Active"=>"Active",
         "All rights reserved."=>"All rights reserved.",
         "Copyright"=>"Copyright",
+        "Profile"=>"Profile",
+        "Online"=>"Online",
+        "Form TO Edit Profile"=>"Form TO Edit Profile",
+        "Edit Profile"=>"Edit Profile",
     ];
 ?>

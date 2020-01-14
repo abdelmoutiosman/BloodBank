@@ -24,45 +24,47 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="lang">
+                <div class="social-media">
+                    <a style="color:white" href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
+                    <a style="color:white" href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
+                    <a style="color:white" href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
+                    <a style="color:white" href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
+                    <a style="color:white" href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{--  <div class="lang">
                     <span><a href="#" id="arabic">عربى</a></span>
                     <span><a href="#" id="en">EN</a></span>
-                </div>
+                </div>  --}}
             </div>
             <div class="col-md-4">
-                <div class="social-media">
-                    <a href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
-                    <a href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
-                    <a href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
-                    <a href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
+                <div class="contact">
+                    <p class="email">{{$settings->email}}</p>
+                    <i class="fas fa-envelope-square email "></i>
+                    <p class="phone ">{{$settings->phone}}</p>
+                    <i class="fas fa-phone-volume phone hvr-buzz"></i>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <span class="navbar-text">
-                   <a  class="new-account"href="/register">انشاء حــساب جديد</a>
-                   <a href="{{url(route('signin'))}}"><button class="btn login-btn shadow">دخول</button></a>
-                  </span>
             </div>
         </div>
     </div>
 </section>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="nav-logo " href="/"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
+    <a class="nav-logo " href="{{url('/')}}"><img class="logo" src="{{asset('imgs/logo.png')}}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link " href="/">الرئيسية</a>
+                <a class="nav-link " href="{{url('/')}}">الرئيسية</a>
                 <span class="test"></span>
             </li>
             <li class="nav-item">
                 <a class="nav-link border-left" href="#app">عن بنك الدم</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-left" href="/">المقالات</a>
+                <a class="nav-link border-left" href="{{url('/post')}}">المقالات</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link border-left" href="{{url(route('orders'))}}">طلبات التبرع</a>
@@ -71,12 +73,12 @@
                 <a class="nav-link border-left" href="{{url(route('about'))}}">من نحن</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-left" href="{{url(route('contacts'))}}">اتصل بنا </a>
+                <a class="nav-link border-left" href="{{url(route('contacts'))}}">اتصل بنا</a>
             </li>
         </ul>
         <span class="navbar-text">
            <a href="{{url(route('order.create'))}}"><button class="btn login-btn shadow">طلب تبرع</button></a>
-          </span>
+        </span>
     </div>
 </nav>
 <!-- breedcrumb-->
@@ -85,33 +87,32 @@
           <div class="row">
               <div class="col-md-12">
                     <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="/">الرئيسية</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">نسيت كلمه المرور</li>
-                            </ol>
-                          </nav>
-
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{url('/')}}">الرئيسية</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">نسيت كلمه المرور</li>
+                        </ol>
+                    </nav>
               </div>
           </div>
           <div class="row">
-        <div class="col-md-12">
-            <div class="article-content shadow">
-                <p class="content">
-                    <img  class="log-logo" src="{{asset('imgs/logo.png')}}">
-                    <form method="POST" action="{{url(route('reset-password'))}}" validate>
-                        {{csrf_field()}}
+                <div class="col-md-12">
+                    <div class="article-content shadow">
+                        <p class="content">
+                        <img  class="log-logo" src="{{asset('imgs/logo.png')}}">
+                        <form method="POST" action="{{url(route('reset-password'))}}" validate>
+                            {{csrf_field()}}
                             <div class="form-group">
-                              <input type="text" class="form-control" name="phone" id="validationCustom01" placeholder="رقم الجوال" required>
+                                <input type="text" class="form-control" name="phone" id="validationCustom01" placeholder="رقم الجوال" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid phone number.
                                 </div>
                             </div>
                             <div class="form-btns">
-                            <button type="submit" class="btn btn-login">ارسال </button>
+                                <button type="submit" class="btn btn-login">ارسال</button>
                             </div>
-                          </form>
-            </div>
-        </div>
+                        </form>
+                    </div>
+                </div>
           </div>
       </div>
 </section>
@@ -125,16 +126,16 @@
                  </div>
                  <div class="col-md-4">
                      <ul class="footer-list">
-                         <a href="/"><li> الرئيسيه</li></a>
-                         <a href="#app"><li> عن بنك الدم </li></a>
-                         <a href="/"> <li> المقالات </li></a>
-                         <a href="{{url(route('orders'))}}"><li> طلبات التبرع </li></a>
-                         <a href="{{url(route('about'))}}"> <li> من نحن </li></a>
-                         <a href="{{url(route('contacts'))}}">  <li> اتصل بنا </li></a>
+                        <a href="{{url('/')}}"><li>الرئيسيه</li></a>
+                        <a href="#app"><li>عن بنك الدم</li></a>
+                        <a href="{{url('/post')}}"><li>المقالات</li></a>
+                        <a href="{{url(route('orders'))}}"><li>طلبات التبرع</li></a>
+                        <a href="{{url(route('about'))}}"><li>من نحن</li></a>
+                        <a href="{{url(route('contacts'))}}"><li>اتصل بنا</li></a>
                      </ul>
                  </div>
                  <div class="col-md-4 change-position">
-                     <p class="footer-subtext">مـتــوفر علي </p>
+                     <p class="footer-subtext">مـتــوفر علي</p>
                      <img class="footer-android" src="{{asset('imgs/google1.png')}}">
                      <img class="footer-ios" src="{{asset('imgs/ios1.png')}}">
                  </div>
@@ -145,13 +146,13 @@
          <div class="container">
              <div class="row">
                  <div class="col-md-4">
-                     <div class="social-media">
-                         <a href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
-                         <a href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
-                         <a href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
-                         <a href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
-                         <a href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
-                     </div>
+                    <div class="social-media">
+                        <a style="color:white" href="{{$settings->facebook_url}}"><i class="fab fa-facebook-f"></i></a>
+                        <a style="color:white" href="{{$settings->whatsapp_url}}"><i class="fab fa-whatsapp"></i></a>
+                        <a style="color:white" href="{{$settings->twitter_url}}"><i class="fab fa-twitter"></i></a>
+                        <a style="color:white" href="{{$settings->youtube_url}}"><i class="fab fa-youtube"></i></a>
+                        <a style="color:white" href="{{$settings->google_url}}"><i class="fab fa-google"></i></a>
+                    </div>
                  </div>
                  <div class="col-md-8">
                      <p class="copys"> جميع الحقوق محفوظ ل <span id="website-name"> بنك الدم </span> &copy;2019 </p>

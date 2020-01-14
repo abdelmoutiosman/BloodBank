@@ -17,9 +17,11 @@
                 </div>
             </div>
             <div class="box-body">
-                <a href="{{url(route('post.create'))}}" class="btn btn-lg bg-primary"><i class="fa fa-plus"></i> {{__('messages.New Post')}}</a>
+                <div class="form-group">
+                    <a href="{{url(route('post.create'))}}" class="btn bg-primary"><i class="fa fa-plus"></i> {{__('messages.New Post')}}</a>
+                </div>
                 @include('flash::message')
-                @if(count($records))                 
+                @if(count($records))
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -34,12 +36,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($records as $record)                              
+                                @foreach ($records as $record)
                                  <tr id="removable{{$record->id}}">
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td class="text-center">{{$record->title}}</td>
                                     <td class="text-center">{{$record->body}}</td>
-                                    <td><img src="{{asset($record->image)}}" style="height:100px"></td>
+                                    <td><img src="{{asset($record->image)}}" style="height:100px;width:200px"></td>
                                     <td class="text-center">{{$record->category->name}}</td>
                                     <td class="text-center">
                                         <a href="{{url(route('post.edit',$record->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
@@ -50,7 +52,7 @@
                                                 'action'=>['PostController@destroy',$record->id],
                                                 'method'=>'delete',
                                                 'files'=>'true'
-                                            ]) !!}                                          
+                                            ]) !!}
                                             <button id="{{$record->id}}" data-token="{{ csrf_token() }}"
                                                 data-route="{{URL::route('post.destroy',$record->id)}}"
                                                 type="button" class="destroy btn btn-danger"><i

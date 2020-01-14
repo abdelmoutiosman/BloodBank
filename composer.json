@@ -41,7 +41,7 @@
             "database/factories"
         ],
         "files": [
-            "App/Abdelmouti/helpers.php"
+            "app/Abdelmouti/helpers.php"
         ],      
         "psr-4": {
             "App\\": "app/"

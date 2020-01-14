@@ -152,13 +152,13 @@
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
-                  <li class="user-header">
-                    <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
-                    <p>
-                      @if(Auth::check())  {{auth()->user()->name}}  @endif
+{{--                  <li class="user-header">--}}
+{{--                    <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">--}}
+{{--                    <p>--}}
+{{--                      @if(Auth::check())  {{auth()->user()->name}}  @endif--}}
 {{--                      <small>Member since Nov. 2012</small>--}}
-                    </p>
-                  </li>
+{{--                    </p>--}}
+{{--                  </li>--}}
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="text-center">
@@ -172,9 +172,12 @@
                         {!! Form::open(['method' => 'post', 'url' => url('logout'),'id'=>'signoutForm']) !!}
                         {!! Form::close() !!}
                       </form>
-                      <a href="#" onclick="submitSignout()">
-                        <i class="fa fa-sign-out"></i>  {{__('messages.Sign Out')}}
-                      </a>
+                        <div class="form-group">
+                            <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-user"></i> {{__('messages.Profile')}}</a>
+                        </div>
+                        <div class="form-group">
+                            <a href="#" onclick="submitSignout()"><i class="fa fa-sign-out"></i> {{__('messages.Sign Out')}}</a>
+                        </div>
                     </div>
                   </li>
                 </ul>
@@ -189,14 +192,36 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-                @if(Auth::check())  {{auth()->user()->name}}  @endif
-            </div>
-          </div>
+{{--          <div class="user-panel">--}}
+{{--            <div class="pull-left image">--}}
+{{--              <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">--}}
+{{--            </div>--}}
+{{--            <div class="pull-left info">--}}
+{{--                <p>@if(Auth::check())  {{auth()->user()->name}}  @endif</p>--}}
+{{--                <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-circle text-success"></i> Online</a>--}}
+{{--            </div>--}}
+{{--          </div>--}}
+            @if(app()->getlocale() == 'ar')
+                <div class="user-panel">
+                    <div class="pull-right image">
+                        <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-right info">
+                        <p>@if(Auth::check())  {{auth()->user()->name}}  @endif</p>
+                        <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-circle text-success"></i> {{__('messages.Online')}}</a>
+                    </div>
+                </div>
+            @else
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="{{asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>@if(Auth::check())  {{auth()->user()->name}}  @endif</p>
+                        <a href="{{url('user/edit-profile',auth()->user()->id)}}"><i class="fa fa-circle text-success"></i> {{__('messages.Online')}}</a>
+                    </div>
+                </div>
+        @endif
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" data-widget="tree">
             <li><a href="{{url('/home')}}"><i class="fa fa-dashboard"></i> <span>{{__('messages.Dashboard')}}</span></a>
@@ -434,10 +459,10 @@
     <!-- jQuery 3 -->
     <script src="{{asset('adminlte/plugins/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('adminlte/plugins/jquery-confirm/jquery.confirm.min.js')}}"></script>
+    <script src="{{asset('adminlte/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('adminlte/plugins/sweetalert/sweetalert.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="{{asset('adminlte/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- SlimScroll -->
     <script src="{{asset('adminlte/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <!-- FastClick -->
@@ -447,13 +472,14 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('adminlte/js/demo.js')}}"></script>
     <script src="{{asset('js/confirm.js')}}"></script>
+    <script src="{{asset('adminlte/plugins/jquery-print-this/printThis.js')}}"></script>
     <script>
       $(document).ready(function () {
         $('.sidebar-menu').tree()
-      })
+      });
     </script>
     @stack('scripts')
-    @stack('print')
+    @stack('print-order')
     @stack('showpassword')
   </body>
 </html>

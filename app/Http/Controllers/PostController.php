@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $records=Post::paginate(2);
+        $records=Post::paginate(6);
         return view('posts.index',compact('records'));
     }
 
@@ -69,7 +69,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -94,10 +94,6 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post=Post::find($id);
-        $this->validate($request, [
-            'title' => 'required',Rule::unique('posts', 'title')->ignore($post->id),
-            'image' => 'required|mimes:jpeg,jpg,png',
-        ]);
         $post->update($request->except('image'));
         if($request->hasFile('image')) {
             if(file_exists($post->image))

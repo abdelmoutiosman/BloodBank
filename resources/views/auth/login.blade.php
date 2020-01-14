@@ -26,10 +26,10 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   </head>
-  <body class="hold-transition login-page">
+  <body class="hold-transition login-page" style="background-image: url({{asset('adminlte/img/dash.jpg')}})">
     <div class="login-box">
       <div class="login-logo">
-        <a href="{{ url('/') }}"><b>Blood</b>Bank</a>
+        <a href="{{ url('/') }}" style="color: white"><b>Blood</b>Bank | Login</a>
       </div>
       <!-- /.login-logo -->
       <div class="login-box-body">
@@ -44,6 +44,16 @@
             <input type="password" name="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="remember">
+                            {{ __('Remember Me') }}
+                        </label>
+                    </div>
+                </div>
+            </div>
           <div class="row">
             <div class="col-xs-8">
                 <a href="{{url('forgetpassword')}}">Forget Password?</a>

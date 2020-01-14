@@ -16,9 +16,9 @@ class ContactController extends Controller
     {
         $records=Contact::where(function($q) use($request) {
             if ($request->has('title')){
-                $q->where('title',$request->title);
+                $q->where('title','Like','%'.$request->title.'%');
             }
-        })->paginate(2);
+        })->paginate(6);
         return view('Contacts.index',compact('records'));
     }
 

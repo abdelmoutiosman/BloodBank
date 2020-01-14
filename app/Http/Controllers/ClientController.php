@@ -16,9 +16,9 @@ class ClientController extends Controller
     {
         $records=Client::where(function($q) use($request) {
             if ($request->has('name')){
-                $q->where('name',$request->name);
+                $q->where('name','like','%'.$request->name.'%');
             }
-        })->paginate(2);
+        })->paginate(6);
         return view('clients.index',compact('records'));
     }
 

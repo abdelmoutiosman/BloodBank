@@ -18,55 +18,59 @@
         </div>
         <div class="box-body">
             <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="bg-info">
-                            <th class="text-center">{{__('messages.Order ID')}}</th>
-                            <th class="text-center">{{__('messages.Blood_Type')}}</th>
-                            <th class="text-center">{{__('messages.Client Name')}}</th>
-                            <th class="text-center">{{__('messages.Age')}}</th>
-                            <th class="text-center">{{__('messages.Bags_Number')}}</th>
-                            <th class="text-center">{{__('messages.Hospital_name')}}</th>
-                            <th class="text-center">{{__('messages.Hospital_address')}}</th>
-                            <th class="text-center">{{__('messages.Longitude')}}</th>
-                            <th class="text-center">{{__('messages.Latitude')}}</th>
-                            <th class="text-center">{{__('messages.Phone')}}</th>
-                            <th class="text-center">{{__('messages.City_Name')}}</th>
-                            <th class="text-center">{{__('messages.Notice')}}</th>
-                            <th class="text-center">{{__('messages.Edit')}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center">{{$records->id}}</td>
-                            <td class="text-center">{{$records->bloodType->name}}</td>
-                            <td class="text-center">{{$records->client->name}}</td>
-                            <td class="text-center">{{$records->age}}</td>
-                            <td class="text-center">{{$records->bags_number}}</td>
-                            <td class="text-center">{{$records->hospital_name}}</td>
-                            <td class="text-center">{{$records->hospital_address}}</td>
-                            <td class="text-center">{{$records->longitude}}</td>
-                            <td class="text-center">{{$records->latitude}}</td>
-                            <td class="text-center">{{$records->phone}}</td>
-                            <td class="text-center">{{$records->city->name}}</td>
-                            <td class="text-center">{{$records->notice}}</td>
-                            <td class="text-center">
-                                <a href="{{url(route('order.edit',$records->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i>
-                                    {{__('messages.Edit')}}</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a href="{{url(route('order.index'))}}" class="btn btn-sm btn-primary">{{__('messages.Back')}} <<</a>
-                <a href="" class="btn btn-sm btn-success" id="printall">{{__('messages.Print')}} <<</a>
+                <div class="print-area">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="bg-info">
+                                <th class="text-center">{{__('messages.Order ID')}}</th>
+                                <th class="text-center">{{__('messages.Blood_Type')}}</th>
+                                <th class="text-center">{{__('messages.Client Name')}}</th>
+                                <th class="text-center">{{__('messages.Age')}}</th>
+                                <th class="text-center">{{__('messages.Bags_Number')}}</th>
+                                <th class="text-center">{{__('messages.Hospital_name')}}</th>
+                                <th class="text-center">{{__('messages.Hospital_address')}}</th>
+                                <th class="text-center">{{__('messages.Longitude')}}</th>
+                                <th class="text-center">{{__('messages.Latitude')}}</th>
+                                <th class="text-center">{{__('messages.Phone')}}</th>
+                                <th class="text-center">{{__('messages.City_Name')}}</th>
+                                <th class="text-center">{{__('messages.Notice')}}</th>
+                                <th class="text-center">{{__('messages.Edit')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{$records->id}}</td>
+                                <td class="text-center">{{$records->bloodType->name}}</td>
+                                <td class="text-center">{{$records->client->name}}</td>
+                                <td class="text-center">{{$records->age}}</td>
+                                <td class="text-center">{{$records->bags_number}}</td>
+                                <td class="text-center">{{$records->hospital_name}}</td>
+                                <td class="text-center">{{$records->hospital_address}}</td>
+                                <td class="text-center">{{$records->longitude}}</td>
+                                <td class="text-center">{{$records->latitude}}</td>
+                                <td class="text-center">{{$records->phone}}</td>
+                                <td class="text-center">{{$records->city->name}}</td>
+                                <td class="text-center">{{$records->notice}}</td>
+                                <td class="text-center">
+                                    <a href="{{url(route('order.edit',$records->id))}}" class="btn btn-success"><i class="fa fa-edit btn-xs"></i> {{__('messages.Edit')}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="{{url(route('order.index'))}}" class="btn btn-sm btn-primary">{{__('messages.Back')}} <i class="fa fa-backward"></i></a>
+                <button class="btn btn-sm btn-success" id="print-btn">{{__('messages.Print')}} <i class="fa fa-print"></i></button>
             </div>
         </div>
     </div>
 </section>
-@push('print')
+@push('print-order')
     <script>
-        $("#printall").click(function(){
-            window.print();
+        $(document).ready(function(){
+            $(document).on('click','#print-btn',function () {
+                $('.print-area').printThis();
+                // window.print();
+            });
         });
     </script>
 @endpush
